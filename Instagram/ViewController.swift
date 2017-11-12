@@ -10,24 +10,22 @@ import UIKit
 import ESTabBarController
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         setupTab()
-        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func setupTab(){
+    func setupTab() {
         
         // 画像のファイル名を指定してESTabBarControllerを作成する
-        let tabBarController: ESTabBarController! = ESTabBarController(tabIcons: ["home","camera","setting"])
+        let tabBarController: ESTabBarController! = ESTabBarController(tabIconNames: ["home", "camera", "setting"])
         
         // 背景色、選択時の色を設定する
         tabBarController.selectedColor = UIColor(red: 1.0, green: 0.44, blue: 0.11, alpha: 1)
@@ -41,10 +39,10 @@ class ViewController: UIViewController {
         
         // タブをタップした時に表示するViewControllerを設定する
         let homeViewController = storyboard?.instantiateViewController(withIdentifier: "Home")
-        let settingViewContorller = storyboard?.instantiateViewController(withIdentifier: "Setting")
+        let settingViewController = storyboard?.instantiateViewController(withIdentifier: "Setting")
         
         tabBarController.setView(homeViewController, at: 0)
-        tabBarController.setView(settingViewContorller, at: 2)
+        tabBarController.setView(settingViewController, at: 2)
         
         // 真ん中のタブはボタンとして扱う
         tabBarController.highlightButton(at: 1)
@@ -53,11 +51,6 @@ class ViewController: UIViewController {
             let imageViewController = self.storyboard?.instantiateViewController(withIdentifier: "ImageSelect")
             self.present(imageViewController!, animated: true, completion: nil)
         }, at: 1)
-        
-        
-        
     }
-
-
 }
 
