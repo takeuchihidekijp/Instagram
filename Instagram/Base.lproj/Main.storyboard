@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +21,52 @@
                     <view key="view" contentMode="scaleToFill" id="ACB-HE-fhs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メールアドレス" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ewv-fh-1aZ">
+                                <rect key="frame" x="37" y="100" width="300" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="パスワード" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jWE-kn-RPO">
+                                <rect key="frame" x="37" y="140" width="300" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="アカウント作成時は表示名を入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q1E-Qu-Ccy">
+                                <rect key="frame" x="37" y="180" width="300" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Lc-RN-hvJ">
+                                <rect key="frame" x="37" y="220" width="300" height="40"/>
+                                <state key="normal" title="ログイン" backgroundImage="btn"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCe-HH-q3R">
+                                <rect key="frame" x="37" y="270" width="300" height="40"/>
+                                <state key="normal" title="アカウント作成" backgroundImage="btn"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6Lc-RN-hvJ" firstAttribute="leading" secondItem="bCe-HH-q3R" secondAttribute="leading" id="4yq-TE-99f"/>
+                            <constraint firstItem="6Lc-RN-hvJ" firstAttribute="trailing" secondItem="ewv-fh-1aZ" secondAttribute="trailing" id="7AI-3x-TWe"/>
+                            <constraint firstItem="bCe-HH-q3R" firstAttribute="top" secondItem="6Lc-RN-hvJ" secondAttribute="bottom" constant="10" id="8zK-gu-6sk"/>
+                            <constraint firstItem="6Lc-RN-hvJ" firstAttribute="trailing" secondItem="q1E-Qu-Ccy" secondAttribute="trailing" id="GAK-gj-4sv"/>
+                            <constraint firstItem="6Lc-RN-hvJ" firstAttribute="centerX" secondItem="ACB-HE-fhs" secondAttribute="centerX" id="IH1-6w-G5s"/>
+                            <constraint firstItem="jWE-kn-RPO" firstAttribute="top" secondItem="ewv-fh-1aZ" secondAttribute="bottom" constant="10" id="LBQ-EA-WBl"/>
+                            <constraint firstItem="6Lc-RN-hvJ" firstAttribute="top" secondItem="q1E-Qu-Ccy" secondAttribute="bottom" constant="10" id="NoX-HS-5GT"/>
+                            <constraint firstItem="6Lc-RN-hvJ" firstAttribute="trailing" secondItem="bCe-HH-q3R" secondAttribute="trailing" id="SRh-Qd-7Vy"/>
+                            <constraint firstItem="q1E-Qu-Ccy" firstAttribute="top" secondItem="jWE-kn-RPO" secondAttribute="bottom" constant="10" id="WZ1-7E-Bfw"/>
+                            <constraint firstItem="ewv-fh-1aZ" firstAttribute="top" secondItem="9ma-Tx-9Qb" secondAttribute="bottom" constant="80" id="aX5-0k-Dfk"/>
+                            <constraint firstItem="6Lc-RN-hvJ" firstAttribute="leading" secondItem="jWE-kn-RPO" secondAttribute="leading" id="nG7-k4-cxw"/>
+                            <constraint firstItem="6Lc-RN-hvJ" firstAttribute="leading" secondItem="ewv-fh-1aZ" secondAttribute="leading" id="rVQ-pu-kin"/>
+                            <constraint firstItem="6Lc-RN-hvJ" firstAttribute="leading" secondItem="q1E-Qu-Ccy" secondAttribute="leading" id="w4Y-AR-hnD"/>
+                            <constraint firstItem="6Lc-RN-hvJ" firstAttribute="leading" secondItem="ACB-HE-fhs" secondAttribute="leadingMargin" constant="21" id="wiA-YL-a3E"/>
+                            <constraint firstItem="6Lc-RN-hvJ" firstAttribute="trailing" secondItem="jWE-kn-RPO" secondAttribute="trailing" id="xCl-BT-saZ"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ndq-1Y-0zZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -118,4 +164,7 @@
             <point key="canvasLocation" x="1345" y="367"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="btn" width="300" height="40"/>
+    </resources>
 </document>
