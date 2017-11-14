@@ -43,10 +43,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Lc-RN-hvJ">
                                 <rect key="frame" x="37" y="220" width="300" height="40"/>
                                 <state key="normal" title="ログイン" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleLoginButton:" destination="wBM-PQ-Q0F" eventType="touchUpInside" id="q5z-FG-mmC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCe-HH-q3R">
                                 <rect key="frame" x="37" y="270" width="300" height="40"/>
                                 <state key="normal" title="アカウント作成" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleCreateAcountButton:" destination="wBM-PQ-Q0F" eventType="touchUpInside" id="b5V-vO-NHL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -68,6 +74,11 @@
                             <constraint firstItem="6Lc-RN-hvJ" firstAttribute="trailing" secondItem="jWE-kn-RPO" secondAttribute="trailing" id="xCl-BT-saZ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="displayNameTextField" destination="q1E-Qu-Ccy" id="9Of-8X-2Os"/>
+                        <outlet property="mailAddressTextField" destination="ewv-fh-1aZ" id="ba3-sd-a28"/>
+                        <outlet property="passwordTextField" destination="jWE-kn-RPO" id="U7x-Gt-t3e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ndq-1Y-0zZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
