@@ -141,7 +141,7 @@
         <!--Image Select View Controller-->
         <scene sceneID="6HT-Ft-7QR">
             <objects>
-                <viewController storyboardIdentifier="ImageSelect" id="CVC-Je-7uM" customClass="ImageSelectViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImageSelect" id="CVC-Je-7uM" customClass="ImageSelectViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rDP-DK-DAK"/>
                         <viewControllerLayoutGuide type="bottom" id="UPh-1Z-wIO"/>
@@ -149,7 +149,47 @@
                     <view key="view" contentMode="scaleToFill" id="gSv-Zy-VTe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ht1-de-Ba4">
+                                <rect key="frame" x="37" y="80" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Blb-pP-PST"/>
+                                </constraints>
+                                <state key="normal" title="ライブラリ" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleLibraryButton:" destination="CVC-Je-7uM" eventType="touchUpInside" id="KDy-ch-xjD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdX-4Q-Efj">
+                                <rect key="frame" x="37" y="130" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="fLQ-BB-PPa"/>
+                                </constraints>
+                                <state key="normal" title="カメラ" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleCameraButton:" destination="CVC-Je-7uM" eventType="touchUpInside" id="KZB-s9-Ma2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZ8-tE-CZo">
+                                <rect key="frame" x="37" y="180" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="irD-Rl-fRK"/>
+                                </constraints>
+                                <state key="normal" title="キャンセル" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleCancelButton:" destination="CVC-Je-7uM" eventType="touchUpInside" id="kUK-xH-zIa"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YdX-4Q-Efj" firstAttribute="top" secondItem="Ht1-de-Ba4" secondAttribute="bottom" constant="10" id="8g4-76-4x1"/>
+                            <constraint firstItem="AZ8-tE-CZo" firstAttribute="centerX" secondItem="gSv-Zy-VTe" secondAttribute="centerX" id="Kq7-gL-gde"/>
+                            <constraint firstItem="Ht1-de-Ba4" firstAttribute="top" secondItem="rDP-DK-DAK" secondAttribute="bottom" constant="60" id="mic-4A-dTZ"/>
+                            <constraint firstItem="Ht1-de-Ba4" firstAttribute="centerX" secondItem="gSv-Zy-VTe" secondAttribute="centerX" id="mls-wi-mGW"/>
+                            <constraint firstItem="AZ8-tE-CZo" firstAttribute="top" secondItem="YdX-4Q-Efj" secondAttribute="bottom" constant="10" id="uqe-Ve-4yb"/>
+                            <constraint firstItem="YdX-4Q-Efj" firstAttribute="centerX" secondItem="gSv-Zy-VTe" secondAttribute="centerX" id="wg8-Z2-8zn"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="55Q-Gh-XAn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -159,7 +199,7 @@
         <!--Setting View Controller-->
         <scene sceneID="cyc-3y-KbC">
             <objects>
-                <viewController storyboardIdentifier="Setting" id="6Mm-2l-1cx" customClass="SettingViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Setting" id="6Mm-2l-1cx" customClass="SettingViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gzm-e4-xpq"/>
                         <viewControllerLayoutGuide type="bottom" id="D91-F3-eWI"/>
