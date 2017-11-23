@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        // Adobeの管理画面で登録したアプリの API key と Client secret の文字列を設定する
+        AdobeUXAuthManager.shared().setAuthenticationParametersWithClientID("ec2b6e89c39245d2a7a01fa6730f2ff1", withClientSecret: "50b31d57-5221-482e-b09d-737ca9c0bd7b")
+        
         return true
     }
 

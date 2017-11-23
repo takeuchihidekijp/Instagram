@@ -34,6 +34,7 @@
 		45665F761FC1B97D0064100C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45665F751FC1B97D0064100C /* OpenGLES.framework */; };
 		45665F781FC1B98C0064100C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45665F771FC1B98C0064100C /* QuartzCore.framework */; };
 		45784B531FB7CF4C004BDC46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45784B521FB7CF4C004BDC46 /* GoogleService-Info.plist */; };
+		45800F481FC73789001EFB85 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45800F471FC73789001EFB85 /* Const.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -80,6 +81,7 @@
 		45665F771FC1B98C0064100C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		45665F7A1FC1BA200064100C /* Instagram-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Instagram-Bridging-Header.h"; sourceTree = "<group>"; };
 		45784B521FB7CF4C004BDC46 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		45800F471FC73789001EFB85 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		9FF51F73D149B0934AA43EF6 /* Pods_Instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9698357030AD1B54D6EC7D /* Pods-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +141,7 @@
 				450FE6E51FB5F2C90048194A /* HomeViewController.swift */,
 				450FE6E71FB5F2E50048194A /* ImageSelectViewController.swift */,
 				450FE6E91FB5F3080048194A /* PostViewController.swift */,
+				45800F471FC73789001EFB85 /* Const.swift */,
 				450FE6EB1FB5F3230048194A /* SettingViewController.swift */,
 				45784B521FB7CF4C004BDC46 /* GoogleService-Info.plist */,
 				450FE6D51FB5EE370048194A /* Main.storyboard */,
@@ -321,6 +324,7 @@
 				450FE6D41FB5EE370048194A /* ViewController.swift in Sources */,
 				450FE6D21FB5EE370048194A /* AppDelegate.swift in Sources */,
 				450FE6E81FB5F2E50048194A /* ImageSelectViewController.swift in Sources */,
+				45800F481FC73789001EFB85 /* Const.swift in Sources */,
 				450FE6EC1FB5F3230048194A /* SettingViewController.swift in Sources */,
 				450FE6E61FB5F2C90048194A /* HomeViewController.swift in Sources */,
 			);

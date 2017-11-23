@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageSelectViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class ImageSelectViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AdobeUXImageEditorViewControllerDelegate{
     
     
     @IBAction func handleLibraryButton(_ sender: Any) {
