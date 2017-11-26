@@ -140,7 +140,36 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         print("DEBUG_PRINT: likeボタンがタップされました。")
         
         // タップされたセルのインデックスを求める
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
         
+        // 配列からタップされたインデックスのデータを取り出す
+        let postData = postArray[indexPath!.row]
+        
+        // Firebaseに保存するデータの準備
+        if let uid = Auth.auth().currentUser?.uid{
+            if postData.isLiked{
+                // すでにいいねをしていた場合はいいねを解除するためIDを取り除く
+                var index = -1
+                for likeId in postData.likes{
+                    if likeId == uid{
+                        // 削除するためにインデックスを保持しておく
+                        index = postData.likes.index(of: likeId)!
+                        break
+                    }
+                }
+                postData.likes.remove(at: index)
+            }else{
+                postData.likes.append(uid)
+            }
+            
+            // 増えたlikesをFirebaseに保存する
+            let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
+            let likes = ["likes": postData.likes]
+            postRef.updateChildValues(likes)
+            
+        }
         
         
     }
