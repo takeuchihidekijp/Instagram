@@ -87,7 +87,7 @@
         <!--Home View Controller-->
         <scene sceneID="Wt4-1d-K8p">
             <objects>
-                <viewController storyboardIdentifier="Home" id="Bh7-kh-mhs" customClass="HomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" id="Bh7-kh-mhs" customClass="HomeViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nKF-09-Uqm"/>
                         <viewControllerLayoutGuide type="bottom" id="yWK-hh-fNP"/>
@@ -95,12 +95,27 @@
                     <view key="view" contentMode="scaleToFill" id="Vly-18-Arn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d2o-Ld-O0a">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="642"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="d2o-Ld-O0a" firstAttribute="leading" secondItem="Vly-18-Arn" secondAttribute="leading" id="Cqv-Zx-xtC"/>
+                            <constraint firstAttribute="trailing" secondItem="d2o-Ld-O0a" secondAttribute="trailing" id="PPl-io-ahl"/>
+                            <constraint firstItem="d2o-Ld-O0a" firstAttribute="top" secondItem="Vly-18-Arn" secondAttribute="top" id="XH2-KN-ar0"/>
+                            <constraint firstItem="yWK-hh-fNP" firstAttribute="top" secondItem="d2o-Ld-O0a" secondAttribute="bottom" constant="25" id="kdD-7p-QSE"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="d2o-Ld-O0a" id="z2C-iz-pbE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xkb-9M-gua" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="714" y="-281"/>
+            <point key="canvasLocation" x="712.79999999999995" y="-281.10944527736132"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="Md5-iM-6cy">
@@ -265,7 +280,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hN9-We-eAQ">
-                                <rect key="frame" x="37.5" y="100" width="300" height="30"/>
+                                <rect key="frame" x="38" y="100" width="300" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="iMK-w4-3im"/>
                                 </constraints>
@@ -311,6 +326,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cde-X9-ad2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1345" y="367"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="1Ax-jc-9Z6">
+            <objects>
+                <tableViewController id="wci-q4-qzm" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="xkL-A8-oEb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="MeG-Ih-X3j">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MeG-Ih-X3j" id="0v7-1f-ufN">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wci-q4-qzm" id="X2Y-bq-cCM"/>
+                            <outlet property="delegate" destination="wci-q4-qzm" id="XgF-Tw-Rd6"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mY8-dJ-4Lt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>
