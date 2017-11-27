@@ -8,11 +8,13 @@
 
 import UIKit
 
-class PostTableViewCell: UITableViewCell {
+class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
     
     @IBOutlet weak var postImageView: UIImageView!
     
     @IBOutlet weak var likeButton: UIButton!
+    
+    @IBOutlet weak var myTextField: UITextField!
     
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -29,6 +31,19 @@ class PostTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    
+    // MARK: - UITextFieldDelegate
+    internal func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        print("myTextField.text")
+        
+
     }
     
     func setPostData(postData: PostData){

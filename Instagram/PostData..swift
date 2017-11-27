@@ -19,6 +19,12 @@ class PostData: NSObject{
     var date: NSDate?
     var likes: [String] = []
     var isLiked: Bool = false
+    //課題対応
+    //入力者コメント
+    var comment: String?
+
+    
+    
     
     init(snapshot: DataSnapshot, myId: String){
         self.id = snapshot.key
@@ -46,6 +52,8 @@ class PostData: NSObject{
                 break
             }
         }
+        
+       // let comment =
         
         
     }
