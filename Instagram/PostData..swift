@@ -53,7 +53,9 @@ class PostData: NSObject{
             }
         }
         
-       // let comment =
+       // 課題対応　入力者コメント
+        self.comment = valueDictionary["comment"] as? String
+        
         
         
     }

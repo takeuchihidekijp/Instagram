@@ -34,14 +34,17 @@ class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
     }
     
     
-    // MARK: - UITextFieldDelegate
-    internal func textFieldShouldReturn(textField: UITextField) -> Bool {
+    // 課題対応
+    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        
+        print("textFieldShouldReturn \(myTextField.text!)")
+        
         return true
     }
-    
+    // 課題対応
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
-        print("myTextField.text")
+        print("textFieldDidEndEditing \(myTextField.text!)")
         
 
     }
@@ -67,6 +70,9 @@ class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
             let buttonImage = UIImage(named: "like_none")
             self.likeButton.setImage(buttonImage, for: UIControlState.normal)
         }
+        //課題対応
+        self.myTextField.text = postData.comment
+        
     }
     
 }
