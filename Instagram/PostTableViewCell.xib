@@ -55,8 +55,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hhl-m5-Ck6">
-                        <rect key="frame" x="118" y="356" width="62" height="30"/>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hhl-m5-Ck6">
+                        <rect key="frame" x="149" y="361" width="46" height="30"/>
                         <state key="normal" title="コメント"/>
                     </button>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメント入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eXI-uX-dSG">
@@ -76,7 +76,6 @@
                     <constraint firstItem="jxw-Va-iXM" firstAttribute="centerY" secondItem="GK1-AA-Fg5" secondAttribute="centerY" id="IN7-de-dyJ"/>
                     <constraint firstItem="WtC-da-1MJ" firstAttribute="leading" secondItem="GK1-AA-Fg5" secondAttribute="trailing" constant="10" id="K62-KY-CXo"/>
                     <constraint firstItem="BuV-kI-VBD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Lk6-cw-7WQ"/>
-                    <constraint firstItem="IsK-s6-Sfg" firstAttribute="top" secondItem="GK1-AA-Fg5" secondAttribute="bottom" constant="10" id="N9c-d7-8SR"/>
                     <constraint firstItem="GK1-AA-Fg5" firstAttribute="top" secondItem="BuV-kI-VBD" secondAttribute="bottom" constant="10" id="POM-Tq-Dyr"/>
                     <constraint firstAttribute="trailingMargin" secondItem="IsK-s6-Sfg" secondAttribute="trailing" constant="10" id="Rdg-cx-wRT"/>
                     <constraint firstAttribute="trailingMargin" secondItem="jxw-Va-iXM" secondAttribute="trailing" constant="10" id="SgL-w3-h4p"/>
