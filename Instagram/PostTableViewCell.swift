@@ -25,6 +25,8 @@ class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        myTextField.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -35,7 +37,10 @@ class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
     
     
     // 課題対応
-    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        print("textFieldShouldReturn \(myTextField.text!)")
+        
         textField.resignFirstResponder()
         
         print("textFieldShouldReturn \(myTextField.text!)")
