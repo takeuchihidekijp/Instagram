@@ -58,6 +58,9 @@
                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hhl-m5-Ck6">
                         <rect key="frame" x="149" y="361" width="46" height="30"/>
                         <state key="normal" title="コメント"/>
+                        <connections>
+                            <action selector="commentButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="CHv-j0-pCS"/>
+                        </connections>
                     </button>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメント入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eXI-uX-dSG">
                         <rect key="frame" x="18" y="433" width="335" height="30"/>
@@ -115,6 +118,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="captionLabel" destination="IsK-s6-Sfg" id="vK2-fI-dgr"/>
+                <outlet property="commentLabel" destination="zIJ-8u-Rd1" id="ixj-5u-0tI"/>
                 <outlet property="dateLabel" destination="jxw-Va-iXM" id="2AZ-n3-pks"/>
                 <outlet property="likeButton" destination="GK1-AA-Fg5" id="dyN-Zu-YwO"/>
                 <outlet property="likeLabel" destination="WtC-da-1MJ" id="A68-cp-8mr"/>

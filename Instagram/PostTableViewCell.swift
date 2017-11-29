@@ -21,6 +21,11 @@ class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
     
     @IBOutlet weak var captionLabel: UILabel!
     
+    @IBAction func commentButton(_ sender: Any) {
+        
+        
+    }
+    @IBOutlet weak var commentLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
