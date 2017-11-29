@@ -21,7 +21,9 @@ class PostData: NSObject{
     var isLiked: Bool = false
     //課題対応
     //入力者コメント
-    var comment: String?
+    var comment: [String] = []
+    //コメントされているか
+    var isCommented: Bool = false
 
     
     
@@ -32,6 +34,8 @@ class PostData: NSObject{
         let valueDictionary = snapshot.value as! [String: AnyObject]
         
         imageString = valueDictionary["image"] as? String
+        
+        
         image = UIImage(data: NSData(base64Encoded: imageString!, options: .ignoreUnknownCharacters)! as Data)
         
         self.name = valueDictionary["name"] as? String
@@ -54,8 +58,16 @@ class PostData: NSObject{
         }
         
        // 課題対応　入力者コメント
-        self.comment = valueDictionary["comment"] as? String
+        if let comment = valueDictionary["comment"] as? [String]{
+            self.comment = comment
+        }
         
+        for CommentedID in self.comment{
+            if CommentedID == myId{
+                self.isCommented = true
+                break
+            }
+        }
         
         
     }

@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
+import SVProgressHUD
 
 class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
+    
+    var postArray: [PostData] = []
     
     @IBOutlet weak var postImageView: UIImageView!
     
@@ -24,6 +29,45 @@ class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
     @IBAction func commentButton(_ sender: Any) {
         
         
+        // ImageViewから画像を取得する
+        let imageData = UIImageJPEGRepresentation(postImageView.image!, 0.5)
+        let imageString = imageData!.base64EncodedString(options: .lineLength64Characters)
+        
+        // postDataに必要な情報を取得しておく
+        let time = NSDate.timeIntervalSinceReferenceDate
+        let name = Auth.auth().currentUser?.displayName
+        
+        // 保持している配列からidが同じものを探す
+        
+        var index: Int = 0
+        for post in self.postArray {
+            if post.id == ().id {
+                index = self.postArray.index(of: post)!
+                break
+            }
+        }
+        
+        // 増えたcommentをFirebaseに保存する
+        
+        let postRef = Database.database().reference().child(Const.PostPath).child(index)
+        let postData = ["caption": captionLabel.text!,"comment": myTextField.text!, "image": imageString, "time": String(time), "name": name!]
+        let comment = ["comment": postData.comment]
+        postRef.updateChildValues(comment)
+        
+        
+        // 辞書を作成してFirebaseに保存する
+      //  let postRef = Database.database().reference().child(Const.PostPath)
+      //  let postData = ["caption": captionLabel.text!,"comment": myTextField.text!, "image": imageString, "time": String(time), "name": name!]
+        
+      //  postRef.childByAutoId().setValue(postData)
+        
+       // postRef.updateChildValues(postData)
+        
+        
+        // HUDで投稿完了を表示する
+        SVProgressHUD.showSuccess(withStatus: "コメント投稿しました")
+        
+        
     }
     @IBOutlet weak var commentLabel: UILabel!
 
@@ -32,6 +76,9 @@ class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
         // Initialization code
         
         myTextField.delegate = self
+        
+        //過去のコメントなどを表示
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
