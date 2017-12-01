@@ -24,6 +24,8 @@ class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
     
     @IBOutlet weak var captionLabel: UILabel!
     
+    @IBOutlet weak var comButton: UIButton!
+    
     @IBAction func commentButton(_ sender: Any) {
         
         
@@ -37,17 +39,6 @@ class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
         
         let postData = ["caption": captionLabel.text!,"comment": myTextField.text!, "image": imageString, "time": String(time), "name": name!]
         
-        postData.comment.append("\(postData.name!) : \(postData.comment!)")
-
-        
-        let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
-        let comment = ["comment": postData.comment]
-        postRef.updateChildValues(comment)
-        
-        
-        
-        // HUDで投稿完了を表示する
-        SVProgressHUD.showSuccess(withStatus: "コメント投稿しました")
         
         
     }
@@ -108,7 +99,11 @@ class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
         }
         //課題対応
         let commentNumber = postData.comment.count
-        self.myTextField.text = postData.comment[commentNumber]
+        
+        print("commentNumber: \(commentNumber)")
+      //  self.myTextField.text = postData.comment[1]
+        self.myTextField.text = "\(postData.comment)"
+        print("coment: \(postData.comment)")
         
     }
     

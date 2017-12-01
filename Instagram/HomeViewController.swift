@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import SVProgressHUD
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
@@ -121,6 +122,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleButton(sender:event:)), for:  UIControlEvents.touchUpInside)
         
+        //課題対応
+        cell.comButton.addTarget(self, action: #selector(commonButton(sender:event:)), for: UIControlEvents.touchUpInside)
+        
         return cell
         
     }
@@ -133,6 +137,29 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // セルをタップされたら何もせずに選択状態を解除する
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+    }
+    
+    //課題対応
+    func commonButton(sender: UIButton,event:UIEvent){
+        print("DEBUG_PRINT: commentボタンがタップされました。")
+        
+        // タップされたセルのインデックスを求める
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        
+        // 配列からタップされたインデックスのデータを取り出す
+        let postData = postArray[indexPath!.row]
+        
+        postData.comment.append("\(postData.name!) : \(postData.comment)")
+        
+        let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
+        let comment = ["comment": postData.comment]
+        postRef.updateChildValues(comment)
+        
+        // HUDで投稿完了を表示する
+        SVProgressHUD.showSuccess(withStatus: "コメントを投稿しました")
+        
     }
     
     // セル内のボタンがタップされた時に呼ばれるメソッド
