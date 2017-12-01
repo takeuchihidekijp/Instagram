@@ -26,6 +26,8 @@ class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
     
     @IBOutlet weak var comButton: UIButton!
     
+    @IBOutlet weak var CommentLabel: UILabel!
+    
     @IBAction func commentButton(_ sender: Any) {
         
         
@@ -42,7 +44,6 @@ class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
         
         
     }
-    @IBOutlet weak var commentLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -102,7 +103,7 @@ class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
         
         print("commentNumber: \(commentNumber)")
       //  self.myTextField.text = postData.comment[1]
-        self.myTextField.text = "\(postData.comment)"
+        self.CommentLabel.text = "\(postData.comment)"
         print("coment: \(postData.comment)")
         
     }

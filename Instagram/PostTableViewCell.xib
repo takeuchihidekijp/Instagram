@@ -117,6 +117,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="CommentLabel" destination="zIJ-8u-Rd1" id="XTg-yR-U0H"/>
                 <outlet property="captionLabel" destination="IsK-s6-Sfg" id="vK2-fI-dgr"/>
                 <outlet property="comButton" destination="Hhl-m5-Ck6" id="BZO-xJ-Kul"/>
                 <outlet property="commentLabel" destination="zIJ-8u-Rd1" id="ixj-5u-0tI"/>
