@@ -148,10 +148,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let point = touch!.location(in: self.tableView)
         let indexPath = tableView.indexPathForRow(at: point)
         
+        let cell = tableView.cellForRow(at: indexPath!) as! PostTableViewCell
+        
         // 配列からタップされたインデックスのデータを取り出す
         let postData = postArray[indexPath!.row]
         
-        postData.comment.append("\(postData.name!) : \(postData.comment)")
+        postData.comment.append("\(postData.name!) : \(cell.myTextField.text!)")
+        
+
         
         let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
         let comment = ["comment": postData.comment]
