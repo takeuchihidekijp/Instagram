@@ -13,8 +13,6 @@ import SVProgressHUD
 
 class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
     
-    var postArray: [PostData] = []
-    
     @IBOutlet weak var postImageView: UIImageView!
     
     @IBOutlet weak var likeButton: UIButton!
@@ -37,31 +35,15 @@ class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
         let time = NSDate.timeIntervalSinceReferenceDate
         let name = Auth.auth().currentUser?.displayName
         
-        // 保持している配列からidが同じものを探す
-        
-        var index: Int = 0
-        for post in self.postArray {
-            if post.id == ().id {
-                index = self.postArray.index(of: post)!
-                break
-            }
-        }
-        
-        // 増えたcommentをFirebaseに保存する
-        
-        let postRef = Database.database().reference().child(Const.PostPath).child(index)
         let postData = ["caption": captionLabel.text!,"comment": myTextField.text!, "image": imageString, "time": String(time), "name": name!]
+        
+        postData.comment.append("\(postData.name!) : \(postData.comment!)")
+
+        
+        let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
         let comment = ["comment": postData.comment]
         postRef.updateChildValues(comment)
         
-        
-        // 辞書を作成してFirebaseに保存する
-      //  let postRef = Database.database().reference().child(Const.PostPath)
-      //  let postData = ["caption": captionLabel.text!,"comment": myTextField.text!, "image": imageString, "time": String(time), "name": name!]
-        
-      //  postRef.childByAutoId().setValue(postData)
-        
-       // postRef.updateChildValues(postData)
         
         
         // HUDで投稿完了を表示する
@@ -90,18 +72,15 @@ class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
     
     // 課題対応
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        print("textFieldShouldReturn \(myTextField.text!)")
+
         
         textField.resignFirstResponder()
-        
-        print("textFieldShouldReturn \(myTextField.text!)")
+
         
         return true
     }
     // 課題対応
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
-        print("textFieldDidEndEditing \(myTextField.text!)")
         
 
     }
@@ -128,7 +107,8 @@ class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
             self.likeButton.setImage(buttonImage, for: UIControlState.normal)
         }
         //課題対応
-        self.myTextField.text = postData.comment
+        let commentNumber = postData.comment.count
+        self.myTextField.text = postData.comment[commentNumber]
         
     }
     
