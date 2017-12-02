@@ -96,11 +96,19 @@ class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
         print("commentNumber: \(commentNumber)")
       //  self.myTextField.text = postData.comment[1]
         //コメント表示を行単位で出力する
+        
+        //テーブルビューのセルはメモリ節約ならびに速度向上のために使い回される特徴があります。
+        //ですので、一度画面上から消えたセルは、また別のセルとして利用されます。
+        //その際、今回のように前のセル `comment_data` が残っているとそのまま追加されてしまうためクリア
+        
+        comment_data = ""
+        comment_work = ""
+        
         for a in 0 ..< commentNumber{
          //   print("coment: \(postData.comment)")
          //   print("coment_a: \(postData.comment[a])")
          //   print("coment_work: \(comment_work)")
-         //   print("coment_work: \(comment_data)")
+         //   print("coment_data: \(comment_data)")
             comment_work = "\(postData.comment[a])"
             comment_data = comment_data + ("\n") + comment_work
         }
@@ -109,7 +117,10 @@ class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
         
       //  self.CommentLabel.text = "\(postData.comment[a])"
       //  print("coment_after: \(postData.comment)")
+        
         self.CommentLabel.text = "\(comment_data)"
+        
+        print("coment_data: \(comment_data)")
     }
     
 }
