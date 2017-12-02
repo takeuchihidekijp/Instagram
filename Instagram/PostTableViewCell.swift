@@ -12,6 +12,9 @@ import FirebaseDatabase
 import SVProgressHUD
 
 class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
+    //課題対応
+    var comment_work: String?
+    var comment_data: String?
     
     @IBOutlet weak var postImageView: UIImageView!
     
@@ -103,9 +106,21 @@ class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
         
         print("commentNumber: \(commentNumber)")
       //  self.myTextField.text = postData.comment[1]
-        self.CommentLabel.text = "\(postData.comment)"
-        print("coment: \(postData.comment)")
+        //コメント表示を行単位で出力する
+        for a in 0 ..< commentNumber{
+            print("coment: \(postData.comment)")
+            print("coment_a: \(postData.comment[a])")
+            print("coment_work: \(comment_work!)")
+            print("coment_work: \(comment_data!)")
+            comment_work = "\(postData.comment[a]))"
+            comment_data! = comment_data! + ("\n") + comment_work!
+        }
+      //  self.CommentLabel.text = "\(postData.comment)"
+        print("coment_after: \(postData.comment)")
         
+      //  self.CommentLabel.text = "\(postData.comment[a])"
+        print("coment_after: \(postData.comment)")
+        self.CommentLabel.text = "\(comment_data)"
     }
     
 }

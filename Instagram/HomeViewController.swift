@@ -122,7 +122,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleButton(sender:event:)), for:  UIControlEvents.touchUpInside)
         
-        //課題対応
+        //課題対応　コメントボタン押下時のメソッド
         cell.comButton.addTarget(self, action: #selector(commonButton(sender:event:)), for: UIControlEvents.touchUpInside)
         
         return cell
