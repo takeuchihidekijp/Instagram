@@ -43,6 +43,8 @@ class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
         
         //過去のコメントなどを表示
         
+        print("DEBUG_PRINT: awakeFromNib()")
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -95,18 +97,18 @@ class PostTableViewCell: UITableViewCell,UITextFieldDelegate {
       //  self.myTextField.text = postData.comment[1]
         //コメント表示を行単位で出力する
         for a in 0 ..< commentNumber{
-            print("coment: \(postData.comment)")
-            print("coment_a: \(postData.comment[a])")
-            print("coment_work: \(comment_work)")
-            print("coment_work: \(comment_data)")
+         //   print("coment: \(postData.comment)")
+         //   print("coment_a: \(postData.comment[a])")
+         //   print("coment_work: \(comment_work)")
+         //   print("coment_work: \(comment_data)")
             comment_work = "\(postData.comment[a])"
             comment_data = comment_data + ("\n") + comment_work
         }
       //  self.CommentLabel.text = "\(postData.comment)"
-        print("coment_after: \(postData.comment)")
+      //  print("coment_after: \(postData.comment)")
         
       //  self.CommentLabel.text = "\(postData.comment[a])"
-        print("coment_after: \(postData.comment)")
+      //  print("coment_after: \(postData.comment)")
         self.CommentLabel.text = "\(comment_data)"
     }
     
