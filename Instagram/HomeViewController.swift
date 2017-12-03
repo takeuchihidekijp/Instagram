@@ -153,8 +153,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // 配列からタップされたインデックスのデータを取り出す
         let postData = postArray[indexPath!.row]
         
-        postData.comment.append("\(postData.name!) : \(cell.myTextField.text!)")
+        //課題後の不具合確認
         
+        let username = Auth.auth().currentUser?.displayName
+        
+        //postData.comment.append("\(postData.name!) : \(cell.myTextField.text!)")
+        postData.comment.append("\(username) : \(cell.myTextField.text!)")
 
         
         let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
