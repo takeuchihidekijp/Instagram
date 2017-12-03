@@ -155,7 +155,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         //課題後の不具合確認
         
-        let username = Auth.auth().currentUser?.displayName
+        let username = Auth.auth().currentUser?.displayName ?? "誰かさん"
         
         //postData.comment.append("\(postData.name!) : \(cell.myTextField.text!)")
         postData.comment.append("\(username) : \(cell.myTextField.text!)")
